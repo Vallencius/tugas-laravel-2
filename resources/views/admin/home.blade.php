@@ -8,9 +8,14 @@
 @section('content')
 <div class="container">
   <h1 class="text-center">Welcome, Admin!</h1>
+  @if(session('status'))
+    <div style="color:green; margin:auto; text-align:center;">
+      {{ session('status') }}
+    </div>
+  @endif
   <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back</a>
-  <a href="#" class="btn btn-success">Add</a>
-  <table id="example" class="table table-striped" style="width:100%">
+  <a href="{{ route('addRoom') }}" class="btn btn-success">Add</a>
+  <table id="example" class="table table-striped" style="width:100%; border: 1px solid #555">
     <thead>
         <tr>
           <th>#</th>
@@ -31,7 +36,7 @@
           <td>{{ $room->price }}</td>
           <td>{{ $room->available }}</td>
           <td>
-            <a href="#" class="btn btn-warning">Edit</a>
+            <a href="/admin/edit/{{ $room->id }}" class="btn btn-warning">Edit</a>
             <button class="btn btn-danger">Delete</button>
           </td>
         </tr>

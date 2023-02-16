@@ -30,4 +30,7 @@ Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::get('/add', [AdminController::class, 'add'])->name('addRoom');
+    Route::post('/add', [AdminController::class, 'addRoom'])->name('addRoom');
+    Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('editRoom');
 });

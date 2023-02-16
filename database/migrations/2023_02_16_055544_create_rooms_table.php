@@ -19,7 +19,7 @@ class CreateRoomsTable extends Migration
             $table->integer('room_type')->unsigned();
             $table->integer('price');
             $table->integer('available');
-            $table->string('image');
+            $table->text('image');
             $table->timestamps();
         });
     }
