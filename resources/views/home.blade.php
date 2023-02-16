@@ -15,10 +15,7 @@
                     <a href="{{ route('logout') }}">Logout</a>
                 @else
                     <a href="{{ route('login') }}">Login</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}">Register</a>
-                    @endif
+                    <a href="{{ route('register') }}">Register</a>
                 @endauth
             </div>
 
@@ -29,6 +26,11 @@
 
                 <div class="links">
                     <a href="{{ route('rooms') }}">Room Lists</a>
+                    @auth
+                        @if(Auth::user()->role == 'Admin')
+                            <a href="{{ route('admin') }}">Admin Page</a>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>

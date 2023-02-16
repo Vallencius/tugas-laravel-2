@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'room_type' => 1,
             'price' => 200000,
             'available' => 15,
-            'image' => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+            'image' => 'https://images.unsplash.com/photo-1424847262089-18a6858bd7e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
         ]);
 
         Room::create([
@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
             'room_type' => 1,
             'price' => 250000,
             'available' => 15,
-            'image' => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+            'image' => 'https://images.unsplash.com/photo-1631554668504-79dd66bbfb94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
         ]);
 
         Room::create([
@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             'room_type' => 2,
             'price' => 400000,
             'available' => 10,
-            'image' => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+            'image' => 'https://images.unsplash.com/photo-1648383228240-6ed939727ad6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'
         ]);
 
         Room::create([
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'room_type' => 3,
             'price' => 700000,
             'available' => 7,
-            'image' => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
+            'image' => 'https://images.unsplash.com/photo-1631049421450-348ccd7f8949?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
         ]);
 
         Room::create([

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,7 @@ Route::post('/login', [LoginController::class, 'login'])->name('loginValidate');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin');
+});
