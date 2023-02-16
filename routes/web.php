@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\RoomController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,13 @@ use App\Http\Controllers\RoomController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
+
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register', [LoginController::class, 'registerValidate'])->name('registerValidate');
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('loginValidate');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
