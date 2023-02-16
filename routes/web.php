@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\RoomController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
