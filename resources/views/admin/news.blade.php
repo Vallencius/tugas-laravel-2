@@ -8,7 +8,7 @@
 @section('content')
 @include('admin.navbar')
 <div class="container">
-  <h1 class="text-center">Room Lists</h1>
+  <h1 class="text-center">News Lists</h1>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
@@ -20,40 +20,38 @@
     <thead>
         <tr>
           <th>#</th>
-          <th>Room Name</th>
-          <th>Image</th>
-          <th>Type</th>
-          <th>Price</th>
-          <th>Available</th>
+          <th>Title</th>
+          <th>Thumbnail</th>
+          <th>Writer</th>
+          <th>Content</th>
           <th>Action</th>
         </tr>
     </thead>
     <tbody>
       <?php $i = 1; ?>
-      @foreach($rooms as $room)
+      @foreach($news as $new)
         <tr>
           <td>{{ $i++ }}</td>
-          <td><img src="{{ asset("storage/room/".$room->image) }}" style="width:90px"/></td>
-          <td>{{ $room->name }}</td>
-          <td>{{ $room->type['type'] }}</td>
-          <td>{{ $room->price }}</td>
-          <td>{{ $room->available }}</td>
+          <td>{{ $new->title }}</td>
+          <td><img src="{{ $new->image }}" style="width:90px"/></td>
+          <td>{{ $new->writer }}</td>
+          <?php preg_match("/(?:\w+(?:\W+|$)){0,10}/", $new->content, $matches); ?>
+          <td>{{ $matches[0] }}...</td>
           <td>
-            <a href="/admin/edit/{{ $room->id }}" class="btn btn-warning">Edit</a>
-            <a class="btn btn-danger" onclick="return confirm('Apakah kamu yakin akan menghapus kamar ini?')" href="/admin/delete/{{ $room->id }}">Delete</a>
+            <a href="/admin/news/edit/{{ $new->id }}" class="btn btn-warning">Edit</a>
+            <a class="btn btn-danger" onclick="return confirm('Apakah kamu yakin akan menghapus berita ini?')" href="/admin/news/delete/{{ $new->id }}">Delete</a>
           </td>
         </tr>
       @endforeach
     </tbody>
     <tfoot>
         <tr>
-            <th>#</th>
-            <th>Room Name</th>
-            <th>Image</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>Available</th>
-            <th>Action</th>
+          <th>#</th>
+          <th>Title</th>
+          <th>Thumbnail</th>
+          <th>Writer</th>
+          <th>Content</th>
+          <th>Action</th>
         </tr>
     </tfoot>
 </div>

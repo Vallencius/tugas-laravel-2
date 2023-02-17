@@ -12,7 +12,7 @@
 @section('content')
 <div class="text-center">
   <h2>Add New Room</h2>
-  <form action="{{ route('addRoom') }}" method="POST">
+  <form action="{{ route('addRoom') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
       <label for="name" class="form-label">Room Name</label>
@@ -51,6 +51,15 @@
       @error('available')
         <div style="color:red; font-size:0.8em; margin:auto; text-align:center;">
           {{ $errors->first('available') }}
+        </div>
+      @enderror
+    </div>
+    <div class="mb-3">
+      <label for="image" class="form-label">Add image</label>
+      <input type="file" class="form-control form-width" id="image" name="image">
+      @error('image')
+        <div style="color:red; font-size:0.8em; margin:auto; text-align:center;">
+          {{ $errors->first('image') }}
         </div>
       @enderror
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Room;
+use App\News;
 use App\RoomType;
 
 class AdminController extends Controller
@@ -32,10 +33,14 @@ class AdminController extends Controller
             'room_type' => 'required',
             'price' => 'required|integer',
             'available' => 'required|integer',
+            'image' => 'image|file|max:5120',
         ]);
 
-        if (!$request->image) {
-            $validReq['image'] = 'https://smartauladi.sch.id/wp-content/uploads/no-image.jpg';
+        if (!$request->file('image')) {
+            $validReq['image'] = 'no-image.jpg';
+        } else {
+            $validReq['image'] = $request->file('image')->store('public/room');
+            $validReq['image'] = substr($validReq['image'], 12);
         }
 
         Room::create($validReq);
@@ -75,5 +80,20 @@ class AdminController extends Controller
        Room::where('id', $id)->delete();
 
        return redirect('/admin')->with('status', 'Room deleted succesfully!');
+    }
+
+    public function news() {
+        $news = News::all();
+
+        return view('admin.news', [
+            'title' => 'Admin Page',
+            'news' => $news
+        ]);
+    }
+    
+    public function deleteNews($id) {
+       News::where('id', $id)->delete();
+
+       return redirect('/admin/news')->with('status', 'News deleted succesfully!');
     }
 }
