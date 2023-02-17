@@ -14,7 +14,7 @@
 @section('content')
 <div class="container">
   <p class="text-center title">Room Lists</p>
-  <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back</a>
+  <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @foreach ($rooms as $room)
       <div class="col">

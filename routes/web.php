@@ -29,6 +29,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
+Route::get('/news/detail/{id}', [NewsController::class, 'newsDetail'])->name('news.detail');
 Route::get('/promo', [NewsController::class, 'promo'])->name('promo');
 
 Route::prefix('admin')->group(function () {
