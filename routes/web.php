@@ -3,6 +3,7 @@
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +28,17 @@ Route::post('/login', [LoginController::class, 'login'])->name('loginValidate');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
+Route::get('/news', [NewsController::class, 'news'])->name('news');
+Route::get('/promo', [NewsController::class, 'promo'])->name('promo');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
+    Route::get('/news', [AdminController::class, 'index'])->name('admin.news');
+    Route::get('/promo', [AdminController::class, 'index'])->name('admin.promo');
+
     Route::get('/add', [AdminController::class, 'add'])->name('addRoom');
     Route::post('/add', [AdminController::class, 'addRoom'])->name('addRoom');
     Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('editRoom');
+    Route::post('/edit', [AdminController::class, 'editRoom'])->name('editRoom');
+    Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('deleteRoom');
 });

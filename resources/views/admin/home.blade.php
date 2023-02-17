@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+@include('admin.navbar')
 <div class="container">
   <h1 class="text-center">Welcome, Admin!</h1>
   @if(session('status'))
@@ -37,7 +38,7 @@
           <td>{{ $room->available }}</td>
           <td>
             <a href="/admin/edit/{{ $room->id }}" class="btn btn-warning">Edit</a>
-            <button class="btn btn-danger">Delete</button>
+            <a class="btn btn-danger" onclick="return confirm('Apakah kamu yakin akan menghapus kamar ini?')" href="/admin/delete/{{ $room->id }}">Delete</a>
           </td>
         </tr>
       @endforeach

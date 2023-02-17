@@ -26,6 +26,8 @@
 
                 <div class="links">
                     <a href="{{ route('rooms') }}">Room Lists</a>
+                    <a href="{{ route('news') }}">Hotel News</a>
+                    <a href="{{ route('promo') }}">Hotel Promos</a>
                     @auth
                         @if(Auth::user()->role == 'Admin')
                             <a href="{{ route('admin') }}">Admin Page</a>
