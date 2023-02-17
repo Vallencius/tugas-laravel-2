@@ -15,7 +15,7 @@
 <div class="container mt-4">
   <a href="{{ route('news') }}" class="btn btn-primary">&laquo; Back</a>
   <p class="text-center title">{{ $news->title }}</p>
-  <img src="{{ $news->image }}" class="card-img" alt="{{ $news->title }}">
+  <img src="{{ asset("storage/news/".$new->image) }}" class="card-img" alt="{{ $news->title }}">
   <p class="card-text"><small class="text-muted">{{ $news->writer }} - {{ $news->created_at->toDateString() }}</small></p>
   <p>{{ $news->content }}</p>
 </div>

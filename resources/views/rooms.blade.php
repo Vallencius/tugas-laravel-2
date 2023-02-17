@@ -19,7 +19,7 @@
     @foreach ($rooms as $room)
       <div class="col">
         <div class="card" style="width: 18rem; height: auto;">
-          <img src="{{ $room->image }}" class="card-img-top img-size" alt="{{ $room->name }}">
+          <img src="{{ asset("storage/room/".$room->image) }}" class="card-img-top img-size" alt="{{ $room->name }}">
           <div class="card-body">
             <p class="card-title">{{ $room->name }}</p>
             <p class="card-subtitle mb-2 text-muted">{{ $room->type['type'] }}</p>

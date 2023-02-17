@@ -19,7 +19,7 @@
     <div class="card mb-3 w-90">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="{{ $new->image }}" class="card-img" alt="{{ $new->title }}">
+          <img src="{{ asset("storage/news/".$new->image) }}" class="card-img" alt="{{ $new->title }}">
         </div>
         <div class="col-md-8">
           <div class="card-body">
