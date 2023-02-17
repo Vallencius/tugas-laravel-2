@@ -13,7 +13,7 @@ class AdminController extends Controller
         $rooms = Room::all();
 
         return view('admin.home', [
-            'title' => 'Admin Page',
+            'title' => 'Admin Page - Room',
             'rooms' => $rooms
         ]);
     }
@@ -82,7 +82,7 @@ class AdminController extends Controller
         $news = News::all();
 
         return view('admin.news', [
-            'title' => 'Admin Page',
+            'title' => 'Admin Page - News',
             'news' => $news
         ]);
     }
