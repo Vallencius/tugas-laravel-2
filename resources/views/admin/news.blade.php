@@ -15,7 +15,7 @@
     </div>
   @endif
   <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back</a>
-  <a href="{{ route('addRoom') }}" class="btn btn-success">Add</a>
+  <a href="{{ route('admin.news.add') }}" class="btn btn-success">Add</a>
   <table id="example" class="table table-striped" style="width:100%; border: 1px solid #555">
     <thead>
         <tr>
@@ -33,7 +33,7 @@
         <tr>
           <td>{{ $i++ }}</td>
           <td>{{ $new->title }}</td>
-          <td><img src="{{ $new->image }}" style="width:90px"/></td>
+          <td><img src="{{ asset("storage/news/".$new->image) }}" style="width:90px"/></td>
           <td>{{ $new->writer }}</td>
           <?php preg_match("/(?:\w+(?:\W+|$)){0,10}/", $new->content, $matches); ?>
           <td>{{ $matches[0] }}...</td>

@@ -67,10 +67,6 @@ class AdminController extends Controller
             'available' => 'required|integer',
         ]);
 
-        if (!$request->image) {
-            $validReq['image'] = 'https://smartauladi.sch.id/wp-content/uploads/no-image.jpg';
-        }
-
         Room::where('id', $request->id)->update($validReq);
 
         return redirect('/admin')->with('status', 'Room edited succesfully!');
@@ -91,6 +87,53 @@ class AdminController extends Controller
         ]);
     }
     
+    public function addNewsView() {
+        return view('admin.addNews', [
+            'title' => 'Add Room',
+        ]);
+    }
+
+    public function addNews(Request $request) {
+        $validReq = $request->validate([
+            'title' => 'required',
+            'writer' => 'required',
+            'content' => 'required',
+            'image' => 'image|file|max:5120',
+        ]);
+
+        if (!$request->file('image')) {
+            $validReq['image'] = 'no-image.jpg';
+        } else {
+            $validReq['image'] = $request->file('image')->store('public/news');
+            $validReq['image'] = substr($validReq['image'], 12);
+        }
+
+        News::create($validReq);
+
+        return redirect('/admin/news')->with('status', 'Room created succesfully!');
+    }
+
+    public function editNewsView($id) {
+        $news = News::where('id', $id)->first();
+
+        return view('admin.editNews', [
+            'title' => 'Edit Room',
+            'news' => $news
+        ]);
+    }
+
+    public function editNews(Request $request) {
+        $validReq = $request->validate([
+            'title' => 'required',
+            'writer' => 'required',
+            'content' => 'required',
+        ]);
+
+        News::where('id', $request->id)->update($validReq);
+
+        return redirect('/admin/news')->with('status', 'News edited succesfully!');
+    }
+
     public function deleteNews($id) {
        News::where('id', $id)->delete();
 

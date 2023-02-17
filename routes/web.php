@@ -43,5 +43,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/edit', [AdminController::class, 'editRoom'])->name('editRoom');
     Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('deleteRoom');
     
+    Route::get('/news/add', [AdminController::class, 'addNewsView'])->name('admin.news.add');
+    Route::post('/news/add', [AdminController::class, 'addNews'])->name('admin.news.add');
     Route::get('/news/delete/{id}', [AdminController::class, 'deleteNews'])->name('admin.news.delete');
+    Route::get('/news/edit/{id}', [AdminController::class, 'editNewsView'])->name('admin.news.edit');
+    Route::post('/news/edit', [AdminController::class, 'editNews'])->name('admin.news.edit');
 });

@@ -133,7 +133,7 @@ class DatabaseSeeder extends Seeder
             International visitor spend in Beijing is just 41% what it was in 2019, with visitors spending a predicted $5BN in 2022 compared to $12.1BN in 2019. In Chengdu, international visitor spend is performing better than the capital with recovery at 61% of 2019 levels. Travellers spent $1.5BN in Chengdu in 2022 compared to $2.5BN in 2019.  
             
             Both Shanghai and Guangzhou have seen international visitor spend drop to 44% of 2019 levels. In Shanghai it went from $11.9BN before the pandemic to $5.2BN in 2022, while in Guangzhou it went from $4.3BN in 2019 to $1.9BN in 2022.',
-            'image' => 'https://www.nevistas.com/ul/4/2023/02/16/11.jpg'
+            'image' => 'WWTC.jpg'
         ]);
         News::create([
             'title' => 'Beijing Set to Become Largest Travel & Tourism City Destination in the World',
@@ -179,7 +179,7 @@ class DatabaseSeeder extends Seeder
             International visitor spend in Beijing is just 41% what it was in 2019, with visitors spending a predicted $5BN in 2022 compared to $12.1BN in 2019. In Chengdu, international visitor spend is performing better than the capital with recovery at 61% of 2019 levels. Travellers spent $1.5BN in Chengdu in 2022 compared to $2.5BN in 2019.  
             
             Both Shanghai and Guangzhou have seen international visitor spend drop to 44% of 2019 levels. In Shanghai it went from $11.9BN before the pandemic to $5.2BN in 2022, while in Guangzhou it went from $4.3BN in 2019 to $1.9BN in 2022.',
-            'image' => 'https://www.nevistas.com/ul/4/2023/02/16/11.jpg'
+            'image' => 'WWTC.jpg'
         ]);
         News::create([
             'title' => 'Beijing Set to Become Largest Travel & Tourism City Destination in the World',
@@ -225,7 +225,7 @@ class DatabaseSeeder extends Seeder
             International visitor spend in Beijing is just 41% what it was in 2019, with visitors spending a predicted $5BN in 2022 compared to $12.1BN in 2019. In Chengdu, international visitor spend is performing better than the capital with recovery at 61% of 2019 levels. Travellers spent $1.5BN in Chengdu in 2022 compared to $2.5BN in 2019.  
             
             Both Shanghai and Guangzhou have seen international visitor spend drop to 44% of 2019 levels. In Shanghai it went from $11.9BN before the pandemic to $5.2BN in 2022, while in Guangzhou it went from $4.3BN in 2019 to $1.9BN in 2022.',
-            'image' => 'https://www.nevistas.com/ul/4/2023/02/16/11.jpg'
+            'image' => 'WWTC.jpg'
         ]);
         News::create([
             'title' => 'Beijing Set to Become Largest Travel & Tourism City Destination in the World',
@@ -271,7 +271,7 @@ class DatabaseSeeder extends Seeder
             International visitor spend in Beijing is just 41% what it was in 2019, with visitors spending a predicted $5BN in 2022 compared to $12.1BN in 2019. In Chengdu, international visitor spend is performing better than the capital with recovery at 61% of 2019 levels. Travellers spent $1.5BN in Chengdu in 2022 compared to $2.5BN in 2019.  
             
             Both Shanghai and Guangzhou have seen international visitor spend drop to 44% of 2019 levels. In Shanghai it went from $11.9BN before the pandemic to $5.2BN in 2022, while in Guangzhou it went from $4.3BN in 2019 to $1.9BN in 2022.',
-            'image' => 'https://www.nevistas.com/ul/4/2023/02/16/11.jpg'
+            'image' => 'WWTC.jpg'
         ]);
     }
 }
