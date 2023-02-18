@@ -3,6 +3,7 @@
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookRoomController;
 use App\Http\Controllers\NewsController;
 
 /*
@@ -31,11 +32,16 @@ Route::get('/rooms', [RoomController::class, 'rooms'])->name('rooms');
 Route::get('/news', [NewsController::class, 'news'])->name('news');
 Route::get('/news/detail/{id}', [NewsController::class, 'newsDetail'])->name('news.detail');
 Route::get('/promo', [NewsController::class, 'promo'])->name('promo');
+Route::get('/book/{id}', [BookRoomController::class, 'index'])->name('book');
+Route::get('/bookList/{id}', [BookRoomController::class, 'bookList'])->name('bookList');
+Route::post('/bookRoom', [BookRoomController::class, 'bookRoom'])->name('bookRoom');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::get('/news', [AdminController::class, 'news'])->name('admin.news');
-    Route::get('/promo', [AdminController::class, 'index'])->name('admin.promo');
+    Route::get('/booking', [AdminController::class, 'booking'])->name('admin.booking');
+    Route::get('/book/acc/{id}', [AdminController::class, 'accBook'])->name('admin.bookAcc');
+    Route::get('/book/notacc/{id}', [AdminController::class, 'notAccBook'])->name('admin.bookNotAcc');
 
     Route::get('/add', [AdminController::class, 'add'])->name('addRoom');
     Route::post('/add', [AdminController::class, 'addRoom'])->name('addRoom');

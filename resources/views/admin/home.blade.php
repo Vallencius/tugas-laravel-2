@@ -7,7 +7,7 @@
 
 @section('content')
 @include('admin.navbar')
-<div class="container">
+<div class="container pt-3">
   <h1 class="text-center">Room Lists</h1>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">

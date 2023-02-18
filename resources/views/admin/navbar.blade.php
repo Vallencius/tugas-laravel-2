@@ -15,9 +15,9 @@
         <li class="nav-item">
           <a class="nav-link @if($title == 'Admin Page - News') active @endif" href="/admin/news">News</a>
         </li>
-        {{-- <li class="nav-item">
-          <a class="nav-link" href="/admin/promo">Promo</a>
-        </li> --}}
+        <li class="nav-item">
+          <a class="nav-link" href="/admin/booking">Booking List</a>
+        </li>
       </ul>
     </div>
   </div>

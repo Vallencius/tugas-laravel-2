@@ -6,52 +6,43 @@
 @endsection
 
 @section('content')
-@include('admin.navbar')
-<div class="container pt-3">
-  <h1 class="text-center">News Lists</h1>
+<div class="container pt-4">
+  <h1 class="text-center">Booking Lists</h1>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
     </div>
   @endif
   <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back</a>
-  <a href="{{ route('admin.news.add') }}" class="btn btn-success">Add</a>
   <table id="example" class="table table-striped" style="width:100%; border: 1px solid #555">
     <thead>
         <tr>
           <th>#</th>
-          <th>Title</th>
-          <th>Thumbnail</th>
-          <th>Writer</th>
-          <th>Content</th>
-          <th>Action</th>
+          <th>Room Name</th>
+          <th>Check In</th>
+          <th>Check Out</th>
+          <th>Status</th>
         </tr>
     </thead>
     <tbody>
       <?php $i = 1; ?>
-      @foreach($news as $new)
+      @foreach($bookings as $booking)
         <tr>
           <td>{{ $i++ }}</td>
-          <td>{{ $new->title }}</td>
-          <td><img src="{{ asset("storage/news/".$new->image) }}" style="width:90px"/></td>
-          <td>{{ $new->writer }}</td>
-          <?php preg_match("/(?:\w+(?:\W+|$)){0,10}/", $new->content, $matches); ?>
-          <td>{{ $matches[0] }}...</td>
-          <td>
-            <a href="/admin/news/edit/{{ $new->id }}" class="btn btn-warning">Edit</a>
-            <a class="btn btn-danger" onclick="return confirm('Apakah kamu yakin akan menghapus berita ini?')" href="/admin/news/delete/{{ $new->id }}">Delete</a>
-          </td>
+          <td>{{ $booking->room['name'] }}</td>
+          <td>{{ $booking->check_in }}</td>
+          <td>{{ $booking->check_out }}</td>
+          <td>{{ $booking->status == 1 ? 'Not Approved' : 'Not Approved' }}</td>
         </tr>
       @endforeach
     </tbody>
     <tfoot>
         <tr>
           <th>#</th>
-          <th>Title</th>
-          <th>Thumbnail</th>
-          <th>Writer</th>
-          <th>Content</th>
-          <th>Action</th>
+          <th>Room Name</th>
+          <th>Check In</th>
+          <th>Check Out</th>
+          <th>Status</th>
         </tr>
     </tfoot>
 </div>

@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
   <p class="text-center title">Hotel News</p>
   <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
   @foreach ($news as $new)
@@ -27,7 +27,17 @@
             <?php preg_match("/(?:\w+(?:\W+|$)){0,20}/", $new->content, $matches); ?>
             <p class="card-text">{{ $matches[0] }}...</p>
             <p class="card-text"><small class="text-muted">{{ $new->writer }} - {{ $new->created_at->toDateString() }}</small></p>
-            <a href="/news/detail/{{ $new->id }}" class="btn btn-primary">See More</a>
+            @if(Auth::check())
+              @auth
+                  @if(Auth::user()->role == 'Admin')
+                      <a class="btn btn-warning" href="/admin/news/edit/{{ $new->id }}" >Edit News</a>
+                  @else
+                      <a href="/news/detail/{{ $new->id }}" class="btn btn-primary">See More</a>
+                  @endif
+              @endauth
+            @else
+                <a href="/news/detail/{{ $new->id }}" class="btn btn-primary">See More</a>
+            @endif
           </div>
         </div>
       </div>

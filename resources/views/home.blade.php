@@ -31,6 +31,8 @@
                     @auth
                         @if(Auth::user()->role == 'Admin')
                             <a href="{{ route('admin') }}">Admin Page</a>
+                        @else
+                            <a href="/bookList/{{ Auth::user()->id }}">Booking List</a>
                         @endif
                     @endauth
                 </div>

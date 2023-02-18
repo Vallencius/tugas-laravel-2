@@ -12,8 +12,13 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container  mt-5">
   <p class="text-center title">Room Lists</p>
+  @if(session('status'))
+    <div style="color:green; margin:auto; text-align:center;">
+      {{ session('status') }}
+    </div>
+  @endif
   <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @foreach ($rooms as $room)
@@ -25,7 +30,17 @@
             <p class="card-subtitle mb-2 text-muted">{{ $room->type['type'] }}</p>
             <p class="card-text">Rp {{ $room->price }}</p>
             <p class="card-text">Currently Available: {{ $room->available }} Rooms</p>
-            <a href="@if(Auth::check()) # @else {{ route('login') }} @endif" class="btn btn-primary">Book Now!</a>
+            @if(Auth::check())
+              @auth
+                  @if(Auth::user()->role == 'Admin')
+                      <a class="btn btn-warning" href="/admin/edit/{{ $room->id }}" >Edit Room</a>
+                  @else
+                      <a href="/book/{{ $room->id }}" class="btn btn-primary">Book Now!</a>
+                  @endif
+              @endauth
+            @else
+              <a href="{{ route('login') }}" class="btn btn-primary">Book Now!</a>
+            @endif
           </div>
         </div>
       </div>

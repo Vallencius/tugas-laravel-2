@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Booking;
 use Illuminate\Http\Request;
 use App\Room;
 use App\News;
@@ -138,5 +139,24 @@ class AdminController extends Controller
        News::where('id', $id)->delete();
 
        return redirect('/admin/news')->with('status', 'News deleted succesfully!');
+    }
+
+    public function booking(){
+        $bookings = Booking::all();
+        return view ('admin.booklist', [
+            'title'=> 'Booking List',
+            'bookings' => $bookings
+        ]);
+    }
+
+    public function accBook($id) {
+        $booking = Booking::where('id', $id)->first();
+        $booking->update(['status' => 1]);
+        return redirect('/admin/booking')->with('status', 'Booking For '.$booking->room['name'].' by '.$booking->user['name'].' Accepted!');
+    }
+    public function notAccBook($id) {
+        $booking = Booking::where('id', $id)->first();
+        $booking->update(['status' => -1]);
+        return redirect('/admin/booking')->with('status', 'Booking For '.$booking->room['name'].' by '.$booking->user['name'].' Not Accepted!');
     }
 }
