@@ -3,11 +3,16 @@
 @section('custom-css')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
 <link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"/>
+<style>
+  .title{
+    font-size: 50px;
+  }
+</style>
 @endsection
 
 @section('content')
-<div class="container pt-4">
-  <h1 class="text-center">Booking Lists</h1>
+<div class="container  mt-5">
+  <p class="text-center title">Booking Lists</p>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
@@ -32,7 +37,9 @@
           <td>{{ $booking->room['name'] }}</td>
           <td>{{ $booking->check_in }}</td>
           <td>{{ $booking->check_out }}</td>
-          <td>{{ $booking->status == 1 ? 'Not Approved' : 'Not Approved' }}</td>
+          <td class="@if($booking->status == 1) text-success @elseif($booking->status == -1) text-danger @endif">
+            {{ $booking->status == 1 ? 'Approved' : 'Not Approved' }}
+          </td>
         </tr>
       @endforeach
     </tbody>
