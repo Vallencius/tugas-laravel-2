@@ -23,7 +23,13 @@
           <div class="card-body">
             <p class="card-title">{{ $room->name }}</p>
             <p class="card-subtitle mb-2 text-muted">{{ $room->type['type'] }}</p>
-            <p class="card-text">Rp {{ $room->price }}</p>
+            @if ($room->promo != 0)
+              <p class="card-text"><del class="text-muted"><small>Rp {{ $room->price }}</small></del>
+                <span class="card-text">Rp {{ $room->price*(100-$room->promo)/100 }}</span>
+              </p>
+            @else
+              <p class="card-text">Rp {{ $room->price }}</p>
+            @endif
             <p class="card-text">Currently Available: {{ $room->available }} Rooms</p>
             <a href="@if(Auth::check()) # @else {{ route('login') }} @endif" class="btn btn-primary">Book Now!</a>
           </div>

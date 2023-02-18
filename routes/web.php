@@ -35,7 +35,6 @@ Route::get('/promo', [NewsController::class, 'promo'])->name('promo');
 Route::prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin');
     Route::get('/news', [AdminController::class, 'news'])->name('admin.news');
-    Route::get('/promo', [AdminController::class, 'index'])->name('admin.promo');
 
     Route::get('/add', [AdminController::class, 'add'])->name('addRoom');
     Route::post('/add', [AdminController::class, 'addRoom'])->name('addRoom');
@@ -48,4 +47,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/news/delete/{id}', [AdminController::class, 'deleteNews'])->name('admin.news.delete');
     Route::get('/news/edit/{id}', [AdminController::class, 'editNewsView'])->name('admin.news.edit');
     Route::post('/news/edit', [AdminController::class, 'editNews'])->name('admin.news.edit');
+    
+    Route::get('/promo/{id}', [AdminController::class, 'promo'])->name('admin.promo');
+    Route::post('/promo', [AdminController::class, 'promoSet'])->name('admin.promo.set');
 });

@@ -139,4 +139,25 @@ class AdminController extends Controller
 
        return redirect('/admin/news')->with('status', 'News deleted succesfully!');
     }
+    
+    public function promo($id) {
+        $room = Room::where('id', $id)->first();
+        return view('admin.promo', [
+            'title' => 'Set Promo',
+            'room' => $room
+        ]);
+    }
+
+    public function promoSet(Request $request) {
+        $validReq = $request->validate([
+            'promo' => 'required|integer|min:0|max:100',
+        ]);
+
+        Room::where('id', $request->id)->update([
+            'promo' => $validReq['promo']
+        ]);
+
+        return redirect('/admin')->with('status', 'Promo edited succesfully!');
+    }
+
 }
