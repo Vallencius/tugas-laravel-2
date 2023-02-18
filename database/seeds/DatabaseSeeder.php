@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Lavender Room',
             'room_type' => 1,
             'price' => 200000,
+            'promo' => 0,
             'available' => 15,
             'image' => 'lavender.avif'
         ]);
@@ -61,6 +62,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Bougenville Room',
             'room_type' => 1,
             'price' => 250000,
+            'promo' => 10,
             'available' => 15,
             'image' => 'bougenville.avif'
         ]);
@@ -69,6 +71,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Rose Room',
             'room_type' => 2,
             'price' => 400000,
+            'promo' => 0,
             'available' => 10,
             'image' => 'rose.avif'
         ]);
@@ -77,6 +80,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Jasmine Room',
             'room_type' => 3,
             'price' => 700000,
+            'promo' => 0,
             'available' => 7,
             'image' => 'jasmine.avif'
         ]);
@@ -85,6 +89,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Lotus Room',
             'room_type' => 4,
             'price' => 800000,
+            'promo' => 0,
             'available' => 5,
             'image' => 'lotus.avif'
         ]);

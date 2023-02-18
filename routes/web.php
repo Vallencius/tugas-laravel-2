@@ -54,4 +54,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/news/delete/{id}', [AdminController::class, 'deleteNews'])->name('admin.news.delete');
     Route::get('/news/edit/{id}', [AdminController::class, 'editNewsView'])->name('admin.news.edit');
     Route::post('/news/edit', [AdminController::class, 'editNews'])->name('admin.news.edit');
+    
+    Route::get('/promo/{id}', [AdminController::class, 'promo'])->name('admin.promo');
+    Route::post('/promo', [AdminController::class, 'promoSet'])->name('admin.promo.set');
 });

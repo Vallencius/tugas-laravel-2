@@ -159,4 +159,24 @@ class AdminController extends Controller
         $booking->update(['status' => -1]);
         return redirect('/admin/booking')->with('status', 'Booking For '.$booking->room['name'].' by '.$booking->user['name'].' Not Accepted!');
     }
+    
+    public function promo($id) {
+        $room = Room::where('id', $id)->first();
+        return view('admin.promo', [
+            'title' => 'Set Promo',
+            'room' => $room
+        ]);
+    }
+
+    public function promoSet(Request $request) {
+        $validReq = $request->validate([
+            'promo' => 'required|integer|min:0|max:100',
+        ]);
+
+        Room::where('id', $request->id)->update([
+            'promo' => $validReq['promo']
+        ]);
+
+        return redirect('/admin')->with('status', 'Promo edited succesfully!');
+    }
 }

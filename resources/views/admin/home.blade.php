@@ -24,6 +24,7 @@
           <th>Image</th>
           <th>Type</th>
           <th>Price</th>
+          <th>Promo</th>
           <th>Available</th>
           <th>Action</th>
         </tr>
@@ -37,8 +38,10 @@
           <td>{{ $room->name }}</td>
           <td>{{ $room->type['type'] }}</td>
           <td>{{ $room->price }}</td>
+          <td>{{ $room->promo }}%</td>
           <td>{{ $room->available }}</td>
           <td>
+            <a href="/admin/promo/{{ $room->id }}" class="btn btn-info">Promo</a>
             <a href="/admin/edit/{{ $room->id }}" class="btn btn-warning">Edit</a>
             <a class="btn btn-danger" onclick="return confirm('Apakah kamu yakin akan menghapus kamar ini?')" href="/admin/delete/{{ $room->id }}">Delete</a>
           </td>
@@ -52,6 +55,7 @@
             <th>Image</th>
             <th>Type</th>
             <th>Price</th>
+            <th>Promo</th>
             <th>Available</th>
             <th>Action</th>
         </tr>
