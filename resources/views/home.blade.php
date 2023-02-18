@@ -21,12 +21,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to Our Hotel
+                    Welcome! Let's Book a Room!
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('rooms') }}">Room Lists</a>
-                    <a href="{{ route('news') }}">Hotel News</a>
+                    <a href="{{ route('rooms') }}">Book a Room</a>
+                    <a href="{{ route('news') }}">See our News</a>
                     {{-- <a href="{{ route('promo') }}">Hotel Promos</a> --}}
                     @auth
                         @if(Auth::user()->role == 'Admin')

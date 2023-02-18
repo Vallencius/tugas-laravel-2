@@ -8,40 +8,212 @@
   .img-size{
     height: 30vh;
   }
+  .cta-100 {
+    padding-left: 8%;
+    padding-top: 7%;
+  }
+  .col-md-4{
+      padding-bottom:20px;
+  }
+
+  .white {
+    color: #fff !important;
+  }
+  .mt{float: left;margin-top: -20px;padding-top: 20px;}
+  .bg-blue-ui {
+    background-color: #708198 !important;
+  }
+  figure img{width:300px;}
+
+  #blogCarousel {
+    padding-bottom: 100px;
+  }
+
+  .blog .carousel-indicators {
+    left: 0;
+    top: -50px;
+    height: 50%;
+  }
+
+
+  /* The colour of the indicators */
+
+  .blog .carousel-indicators li {
+    background: #708198;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+  }
+
+  .blog .carousel-indicators .active {
+    background: #0fc9af;
+  }
+
+
+
+
+  .item-carousel-blog-block {
+    outline: medium none;
+    padding: 15px;
+  }
+
+  .item-box-blog {
+    border: 1px solid #dadada;
+    text-align: center;
+    z-index: 4;
+    padding: 20px;
+  }
+
+  .item-box-blog-image {
+    position: relative;
+  }
+
+  .item-box-blog-image figure img {
+    width: 100%;
+    height: auto;
+  }
+
+  .item-box-blog-date {
+    position: absolute;
+    z-index: 5;
+    padding: 4px 20px;
+    top: -20px;
+    right: 8px;
+    background-color: #41cb52;
+  }
+
+  .item-box-blog-date span {
+    color: #fff;
+    display: block;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .item-box-blog-date span.mon {
+    font-size: 18px;
+  }
+
+  .item-box-blog-date span.day {
+    font-size: 16px;
+  }
+
+  .item-box-blog-body {
+    padding: 10px;
+  }
+
+  .item-heading-blog a h5 {
+    margin: 0;
+    line-height: 1;
+    text-decoration:none;
+    transition: color 0.3s;
+  }
+
+  .item-box-blog-heading a {
+      text-decoration: none;
+  }
+
+  .item-box-blog-data p {
+    font-size: 13px;
+  }
+
+  .item-box-blog-data p i {
+    font-size: 12px;
+  }
+
+  .item-box-blog-text {
+    max-height: 100px;
+    overflow: hidden;
+  }
+
+  .mt-10 {
+    float: left;
+    margin-top: -10px;
+    padding-top: 10px;
+  }
+
+  .btn.bg-blue-ui.white.read {
+    cursor: pointer;
+    padding: 4px 20px;
+    float: left;
+    margin-top: 10px;
+  }
+
+  .btn.bg-blue-ui.white.read:hover {
+    box-shadow: 0px 5px 15px inset #4d5f77;
+  }
 </style>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 @endsection
 
 @section('content')
 <div class="container mt-5">
   <p class="text-center title">Hotel News</p>
   <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
-  @foreach ($news as $new)
-    <div class="card mb-3 w-90">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="{{ asset("storage/news/".$new->image) }}" class="card-img" alt="{{ $new->title }}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ $new->title }}</h5>
-            <?php preg_match("/(?:\w+(?:\W+|$)){0,20}/", $new->content, $matches); ?>
-            <p class="card-text">{{ $matches[0] }}...</p>
-            <p class="card-text"><small class="text-muted">{{ $new->writer }} - {{ $new->created_at->toDateString() }}</small></p>
-            @if(Auth::check())
-              @auth
-                  @if(Auth::user()->role == 'Admin')
-                      <a class="btn btn-warning" href="/admin/news/edit/{{ $new->id }}" >Edit News</a>
-                  @else
-                      <a href="/news/detail/{{ $new->id }}" class="btn btn-primary">See More</a>
-                  @endif
-              @endauth
-            @else
-                <a href="/news/detail/{{ $new->id }}" class="btn btn-primary">See More</a>
-            @endif
+  <div class="container cta-100 ">
+    <div class="container">
+      <div class="row blog">
+        <div class="col-md-12">
+          <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="row">
+                @foreach ($news as $new)
+                  <div class="col-md-4" >
+                    <div class="item-box-blog">
+                      <div class="item-box-blog-image">
+                        <!--Date-->
+                        <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">{{ $new->created_at->toDateString() }}</span> </div>
+                        <!--Image-->
+                        <figure> <img alt="{{ $new->title }}" src="{{ asset("storage/news/".$new->image) }}"> </figure>
+                      </div>
+                      <div class="item-box-blog-body">
+                        <!--Heading-->
+                        <div class="item-box-blog-heading">
+                          <a href="#" tabindex="0">
+                            <h5>{{ $new->title }}</h5>
+                          </a>
+                        </div>
+                        <!--Data-->
+                        <div class="item-box-blog-data" style="padding: px 15px;">
+                          <p><i class="fa fa-user-o"></i> {{ $new->writer }}, <i class="fa fa-comments-o"></i> {{ $new->created_at->toTimeString() }}</p>
+                        </div>
+                        <!--Text-->
+                        <div class="item-box-blog-text">
+                          <?php preg_match("/(?:\w+(?:\W+|$)){0,20}/", $new->content, $matches); ?>
+                          <p class="card-text">{{ $matches[0] }}...</p>
+                        </div>
+                        <div class="mt">
+                          @if(Auth::check())
+                            @auth
+                                @if(Auth::user()->role == 'Admin')
+                                    <a class="text-warning" href="/admin/news/edit/{{ $new->id }}" >Edit News</a>
+                                @else
+                                    <a href="/news/detail/{{ $new->id }}" class="text-primary">See More</a>
+                                @endif
+                            @endauth
+                          @else
+                              <a href="/news/detail/{{ $new->id }}" class="text-primary">See More</a>
+                          @endif
+                        </div>
+                        <!--Read More Button-->
+                      </div>
+                    </div>
+                  </div>
+                @endforeach   
+                </div>
+              <!--.row-->
+              </div>
+            <!--.item-->
+            </div>
+          <!--.carousel-inner-->
           </div>
+        <!--.Carousel-->
         </div>
       </div>
     </div>
-  @endforeach
+  </div>
 </div>
 @endsection

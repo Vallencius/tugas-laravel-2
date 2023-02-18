@@ -6,9 +6,15 @@
     font-size: 50px;
   }
   .img-size{
-    height: 30vh;
+    width: 20vw;
   }
 </style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 @endsection
 
 @section('content')
@@ -20,22 +26,23 @@
     </div>
   @endif
   <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
     @foreach ($rooms as $room)
-      <div class="col">
-        <div class="card" style="width: 18rem; height: auto;">
-          <img src="{{ asset("storage/room/".$room->image) }}" class="card-img-top img-size" alt="{{ $room->name }}">
-          <div class="card-body">
-            <p class="card-title">{{ $room->name }}</p>
-            <p class="card-subtitle mb-2 text-muted">{{ $room->type['type'] }}</p>
+    <div class="well">
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img src="{{ asset("storage/room/".$room->image) }}" class="media-object img-size" alt="{{ $room->name }}">
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading">{{ $room->name }}</h4>
+            <p class="text-right">{{ $room->type['type'] }}</p>
             @if ($room->promo != 0)
-              <p class="card-text"><del class="text-muted"><small>Rp {{ $room->price }}</small></del>
-                <span class="card-text">Rp {{ $room->price*(100-$room->promo)/100 }}</span>
+              <p><del class="text-muted"><small>Rp {{ $room->price }}</small></del>
+                <span>Rp {{ $room->price*(100-$room->promo)/100 }}</span>
               </p>
             @else
-              <p class="card-text">Rp {{ $room->price }}</p>
+              <p>Rp {{ $room->price }}</p>
             @endif
-            <p class="card-text">Currently Available: {{ $room->available }} Rooms</p>
+            
             @if(Auth::check())
               @auth
                   @if(Auth::user()->role == 'Admin')
@@ -47,10 +54,9 @@
             @else
               <a href="{{ route('login') }}" class="btn btn-primary">Book Now!</a>
             @endif
-          </div>
-        </div>
+         </div>
       </div>
+    </div>
     @endforeach
-  </div>
 </div>
 @endsection
