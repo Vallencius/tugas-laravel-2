@@ -19,21 +19,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin',
             'role' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin123')
+            'password' => bcrypt('inipassword')
         ]);
 
         User::create([
-            'name' => 'Antonius Kevin',
+            'name' => 'Arnold',
             'role' => 'Guest',
-            'email' => 'antonius@gmail.com',
-            'password' => bcrypt('anton123')
-        ]);
-
-        User::create([
-            'name' => 'Vallencius Gavriel',
-            'role' => 'Guest',
-            'email' => 'vallencius@gmail.com',
-            'password' => bcrypt('vallen123')
+            'email' => 'arnold@gmail.com',
+            'password' => bcrypt('arnold123')
         ]);
 
         RoomType::create([
