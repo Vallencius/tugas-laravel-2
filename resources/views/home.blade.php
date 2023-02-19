@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -6,16 +7,18 @@
 
         <title>Hotel Laravel</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link href={{ asset('css/home.css') }} rel="stylesheet"/>
     </head>
-    <body>
-        <div class="flex-center position-ref full-height">
+    <body class="text-light">
+        <div class="flex-center position-ref full-height text-light">
             <div class="top-right links">
                 @auth
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a class="text-light" href="{{ route('logout') }}">Logout</a>
                 @else
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a class="text-light" href="{{ route('login') }}">Login</a>
+                    <a class="text-light" href="{{ route('register') }}">Register</a>
                 @endauth
             </div>
 
@@ -25,14 +28,14 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('rooms') }}">Book a Room</a>
-                    <a href="{{ route('news') }}">See our News</a>
+                    <a class="text-light" href="{{ route('rooms') }}">Book a Room</a>
+                    <a class="text-light" href="{{ route('news') }}">See our News</a>
                     {{-- <a href="{{ route('promo') }}">Hotel Promos</a> --}}
                     @auth
                         @if(Auth::user()->role == 'Admin')
-                            <a href="{{ route('admin') }}">Admin Page</a>
+                            <a class="text-light" href="{{ route('admin') }}">Admin Page</a>
                         @else
-                            <a href="/bookList/{{ Auth::user()->id }}">Booking List</a>
+                            <a class="text-light" href="/bookList/{{ Auth::user()->id }}">Booking List</a>
                         @endif
                     @endauth
                 </div>

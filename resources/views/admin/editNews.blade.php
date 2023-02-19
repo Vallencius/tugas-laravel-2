@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div class="text-center my-4">
+<div class="text-center text-light pt-5">
   <h2>Edit News</h2>
   <form action="{{ route('admin.news.edit') }}" method="POST" enctype="multipart/form-data">
     @csrf

@@ -148,9 +148,9 @@
 @endsection
 
 @section('content')
-<div class="container mt-5">
-  <p class="text-center title">Hotel News</p>
-  <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
+<div class="container pt-5 bg-dark">
+  <p class="text-center title text-light">Hotel News</p>
+  <a href="{{ route('home') }}" class="btn btn-secondary mb-4">&laquo; Back</a>
   <div class="container cta-100 ">
     <div class="container">
       <div class="row blog">
@@ -162,7 +162,7 @@
                 <div class="row">
                 @foreach ($news as $new)
                   <div class="col-md-4" >
-                    <div class="item-box-blog">
+                    <div class="item-box-blog bg-light rounded">
                       <div class="item-box-blog-image">
                         <!--Date-->
                         <div class="item-box-blog-date bg-blue-ui white"> <span class="mon">{{ $new->created_at->toDateString() }}</span> </div>
@@ -172,7 +172,7 @@
                       <div class="item-box-blog-body">
                         <!--Heading-->
                         <div class="item-box-blog-heading">
-                          <a href="#" tabindex="0">
+                          <a href="/news/detail/{{ $new->id }}" tabindex="0">
                             <h5>{{ $new->title }}</h5>
                           </a>
                         </div>
@@ -185,7 +185,7 @@
                           <?php preg_match("/(?:\w+(?:\W+|$)){0,20}/", $new->content, $matches); ?>
                           <p class="card-text">{{ $matches[0] }}...</p>
                         </div>
-                        <div class="mt">
+                        <div class="mt mx-auto text-center justify-content-center">
                           @if(Auth::check())
                             @auth
                                 @if(Auth::user()->role == 'Admin')

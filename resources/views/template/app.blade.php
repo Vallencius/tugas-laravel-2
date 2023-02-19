@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="bg-dark" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
   <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
   @yield('custom-css')
 </head>
-<body>
+<body class="bg-dark">
   @yield('content')
 </body>
 @yield('custom-js')

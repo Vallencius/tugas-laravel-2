@@ -18,21 +18,21 @@
 @endsection
 
 @section('content')
-<div class="container  mt-5">
-  <p class="text-center title">Room Lists</p>
+<div class="container pt-5 bg-dark">
+  <p class="text-center title text-light">Room Lists</p>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
     </div>
   @endif
-  <a href="{{ route('home') }}" class="btn btn-primary mb-4">&laquo; Back</a>
+  <a href="{{ route('home') }}" class="btn btn-secondary mb-4">&laquo; Back</a>
     @foreach ($rooms as $room)
-    <div class="well">
+    <div class="well bg-secondary border-light">
         <div class="media">
           <a class="pull-left" href="#">
             <img src="{{ asset("storage/room/".$room->image) }}" class="media-object img-size" alt="{{ $room->name }}">
         </a>
-        <div class="media-body">
+        <div class="media-body text-light">
           <h4 class="media-heading">{{ $room->name }}</h4>
             <p class="text-right">{{ $room->type['type'] }}</p>
             @if ($room->promo != 0)

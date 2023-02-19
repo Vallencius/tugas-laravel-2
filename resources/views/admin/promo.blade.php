@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div class="text-center">
+<div class="text-center text-light pt-5">
   <h2>Set Room Promo</h2>
   <form action="{{ route('admin.promo.set') }}" method="POST" enctype="multipart/form-data">
     @csrf

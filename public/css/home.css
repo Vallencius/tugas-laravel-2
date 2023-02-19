@@ -7,6 +7,10 @@ html, body {
     margin: 0;
 }
 
+body {
+    background-image: linear-gradient(180deg, black, gray);
+}
+
 .full-height {
     height: 100vh;
 }

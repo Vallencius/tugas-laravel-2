@@ -10,7 +10,7 @@
 @endsection
 
 @section('content')
-<div class="text-center">
+<div class="text-center text-light pt-5">
   <h2>Add New Room</h2>
   <form action="{{ route('addRoom') }}" method="POST" enctype="multipart/form-data">
     @csrf

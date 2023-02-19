@@ -1,8 +1,12 @@
 @extends('template.app')
 
 @section('custom-css')
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
-<link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"/>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"/>
+<link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap4.min.css"/>
+<link href="https://cdn.datatables.net/rowreorder/1.3.2/css/rowReorder.bootstrap4.min.css"/>
+{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
+<link href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"/> --}}
 <style>
   .title{
     font-size: 50px;
@@ -11,15 +15,17 @@
 @endsection
 
 @section('content')
-<div class="container  mt-5">
-  <p class="text-center title">Booking Lists</p>
+<div class="container pt-5">
+  <p class="text-center title text-light">Booking Lists</p>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
     </div>
   @endif
-  <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back</a>
-  <table id="example" class="table table-striped" style="width:100%; border: 1px solid #555">
+  <a href="{{ route('home') }}" class="btn btn-secondary">&laquo; Back</a>
+  <div class="text-light">
+
+  <table id="example" class="table table-striped bg-light" style="width:100%; border: 1px solid #555">
     <thead>
         <tr>
           <th>#</th>
@@ -52,6 +58,8 @@
           <th>Status</th>
         </tr>
     </tfoot>
+  </div>
+
 </div>
 @endsection
 

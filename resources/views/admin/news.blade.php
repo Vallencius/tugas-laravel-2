@@ -7,16 +7,18 @@
 
 @section('content')
 @include('admin.navbar')
-<div class="container pt-3">
+<div class="container pt-3 text-light">
   <h1 class="text-center">News Lists</h1>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
     </div>
   @endif
-  <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back</a>
+  <a href="{{ route('home') }}" class="btn btn-secondary">&laquo; Back</a>
   <a href="{{ route('admin.news.add') }}" class="btn btn-success">Add</a>
-  <table id="example" class="table table-striped" style="width:100%; border: 1px solid #555">
+  <div class="text-light">
+
+  <table id="example" class="table table-striped bg-light" style="width:100%; border: 1px solid #555">
     <thead>
         <tr>
           <th>#</th>
@@ -54,6 +56,9 @@
           <th>Action</th>
         </tr>
     </tfoot>
+  </table>
+</div>
+
 </div>
 @endsection
 

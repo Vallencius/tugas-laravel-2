@@ -1,11 +1,11 @@
 @extends('template.app')
 
 @section('content')
-<section class="h-100" style="background-color: #eee; height:fit-content">
-  <div class="container pt-2">
+<section class="h-100 bg-dark" style="background-color: #eee; height:fit-content">
+  <div class="container pt-5 bg-dark">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
+        <div class="card text-black bg-secondary" style="border-radius: 25px;">
           <div class="card-body p-md-5">
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
@@ -66,7 +66,7 @@
                   @endif
 
                   <div class="d-flex justify-content-center mx-4 mt-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg flex-fill">Register</button>
+                    <button type="submit" class="btn btn-warning btn-lg flex-fill">Register</button>
                   </div>
                 </form>
                 {{-- <hr class="my-4"> --}}

@@ -7,16 +7,18 @@
 
 @section('content')
 @include('admin.navbar')
-<div class="container pt-3">
+<div class="container pt-3 text-light">
   <h1 class="text-center">Booking Lists</h1>
   @if(session('status'))
     <div style="color:green; margin:auto; text-align:center;">
       {{ session('status') }}
     </div>
   @endif
-  <a href="{{ route('home') }}" class="btn btn-primary">&laquo; Back </a>
-  <table id="example" class="table table-striped" style="width:100%; border: 1px solid #555">
-    <thead>
+  <a href="{{ route('home') }}" class="btn btn-secondary">&laquo; Back </a>
+  <div class="text-light">
+    
+    <table id="example" class="table table-striped bg-light" style="width:100%; border: 1px solid #555">
+      <thead>
         <tr>
           <th>#</th>
           <th>Room Name</th>
@@ -26,10 +28,10 @@
           <th>Check Out</th>
           <th>Status</th>
         </tr>
-    </thead>
-    <tbody>
-      <?php $i = 1; ?>
-      @foreach($bookings as $booking)
+      </thead>
+      <tbody>
+        <?php $i = 1; ?>
+        @foreach($bookings as $booking)
         <tr>
           <td>{{ $i++ }}</td>
           <td>{{ $booking->room['name'] }}</td>
@@ -39,9 +41,9 @@
           <td>{{ $booking->check_out }}</td>
           <td class="@if($booking->status == 1) text-success @elseif($booking->status == -1) text-danger @endif">
             @if($booking->status == 1)
-              Approved
+            Approved
             @elseif($booking->status == -1)
-              Not Approved
+            Not Approved
             @else
             <a href="/admin/book/acc/{{ $booking->id }}" class="btn btn-success">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
@@ -56,9 +58,9 @@
             @endif
           </td>
         </tr>
-      @endforeach
-    </tbody>
-    <tfoot>
+        @endforeach
+      </tbody>
+      <tfoot>
         <tr>
           <th>#</th>
           <th>Room Name</th>
@@ -68,11 +70,13 @@
           <th>Check Out</th>
           <th>Status</th>
         </tr>
-    </tfoot>
-</div>
-@endsection
-
-@section('custom-js')
+      </tfoot>
+    </table>
+    </div>
+    </div>
+    @endsection
+    
+    @section('custom-js')
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>

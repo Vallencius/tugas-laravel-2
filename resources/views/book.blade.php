@@ -14,13 +14,13 @@
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container bg-dark">
   <div class="row">
     <div class="col-sm-9 col-md-7 col-lg-6 mx-auto">
-      <div class="card border-0 shadow rounded-3 my-5">
+      <div class="card border-0 shadow rounded-3 my-5 bg-secondary">
         <img src="{{ asset("storage/room/".$room->image) }}" class="card-img-top img-size mb-0" alt="{{ $room->name }}">
         <div class="card-body p-2 p-sm-5">
-          <h5 class="card-title text-center mb-4 fw-light fs-5">{{ $room->name }}</h5>
+          <h5 class="card-title text-center mb-4 fw-bold text-light fs-4">{{ $room->name }}</h5>
           <form action="{{ route('bookRoom') }}" method="POST">
             @csrf
             <input type="number" class="form-control form-width" id="user_id" name="user_id" aria-describedby="user_idHelp" value="{{ Auth::user()->id }}" hidden>
@@ -34,13 +34,13 @@
               <label for="check_out">Check-Out</label>
             </div>
             <div class="d-grid">
-              <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">
+              <button class="btn btn-warning btn-login text-uppercase fw-bold" type="submit">
                 Book
               </button>
             </div>
             <hr class="my-4">
             <div class="d-grid mb-0">
-                <p class="text-center my-4">Want To Change Room? <br class="d-block d-sm-none"/><a href="{{ route('rooms') }}"  class="ps-1 text-color-green">Find Other Rooms!</a></p>
+                <p class="text-center my-4">Want To Change Room? <br class="d-block d-sm-none"/><a href="{{ route('rooms') }}"  class="ps-1 text-warning">Find Other Rooms!</a></p>
             </div>
           </form>
         </div>
